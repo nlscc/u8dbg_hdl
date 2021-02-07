@@ -1,0 +1,21 @@
+DESCRIPTION
+ this is an implementation of the Lapis nX-u8/u16 test protocol (over the TEST0
+ and TEST1/RESET pins) for the Basys3 devboard. may be possible to port to other
+ boards but you may have to change the constraints / build script / clock
+ timings accordingly.
+FILES
+ fpga/ => fpga bitstream / sources
+ interface/ => python interface with the fpga
+USAGE
+ COMPILING THE BITSTREAM
+  - install bubblewrap for build sandboxing (sudo apt-get install bubblewrap)
+  - make sure Vivado is installed and you have sourced settings64.sh
+  - run make
+ PROGRAMMING THE BITSTREAM
+  - use the Hardware Manager in Vivado (if you are using the prebuilt
+    bitstream you can use Lab Edition)
+ CONNECTING TO AN MCU
+  - connect the MCU debug clock (marked TEST1 or RESET) to JA1
+  - connect the MCU debug data (marked TEST0 or TEST) to JA2
+  - run read_chipid.py with the serial port of the board as the output. you
+    should receive something that looks reasonable as a chip ID
